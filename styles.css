@@ -8,6 +8,8 @@ header {
     margin: 0;
     padding: 0;
     border: 0;
+    position: relative;
+    z-index: 2;
 }
 ul {
     margin: 0;
@@ -102,4 +104,8 @@ header,
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+body {
+    overflow: hidden;
 }
