@@ -34,7 +34,7 @@ body {
 }
 
 header {
-    color: white;
+    color: #e4e0e1;
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
     /* font-weight:; */
@@ -65,7 +65,6 @@ header {
 .hero-title {
     display: flex;
     justify-content: center;
-    color: white;
 }
 
 .overlay {
@@ -94,6 +93,13 @@ header,
     font-family: "Slabo 27px", serif;
     font-weight: 1000;
     font-style: normal;
-    font-size: 3rem;
-    color: white;
+    font-size: 6rem;
+    color: #493628;
+    padding-bottom: 20%;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
