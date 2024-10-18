@@ -79,3 +79,21 @@ header {
     bottom: 0;
     z-index: 1;
 }
+
+header,
+.logo {
+    font-family: "Afacad Flux", serif;
+    font-optical-sizing: auto;
+    /* font-weight: <weight>; */
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+    font-size: 1.5rem;
+}
+
+.hero-title {
+    font-family: "Slabo 27px", serif;
+    font-weight: 1000;
+    font-style: normal;
+    font-size: 3rem;
+    color: white;
+}
