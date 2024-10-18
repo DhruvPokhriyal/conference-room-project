@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+header {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+ul {
+    margin: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+.navlist {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    /* background-color: #c7ffd8; */
+    padding: 20px;
+}
+
+.logo {
+    margin-right: auto;
+    font-size: 20px;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+}
+
+header {
+    color: white;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    /* font-weight:; */
+    font-style: normal;
+}
+
+.navlist a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.hero {
+    /* background: url("assets/images/cover-image.jpg"); */
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    /* background: linear-gradient(-45deg, #0b2f9f, #98ded9, #c7ffd8); */
+    background-image: url("assets/images/benjamin-child-GWe0dlVD9e0-unsplash.jpg");
+    background-size: cover;
+    position: relative;
+}
+
+.hero-title {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+}
