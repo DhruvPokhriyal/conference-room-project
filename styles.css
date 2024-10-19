@@ -169,7 +169,8 @@ header,
     background-color: #e4e0e1;
 }
 
-.card-title {
+.card-title,
+h5 {
     font-family: "Slabo 27px", serif;
     font-weight: 1000;
     font-style: normal;
@@ -178,7 +179,8 @@ header,
 }
 
 .card-text,
-button {
+button,
+p {
     font-family: "Afacad Flux", serif;
     font-optical-sizing: auto;
     /* font-weight: <weight>; */
