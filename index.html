@@ -89,6 +89,7 @@
                         </button>
                     </div>
                 </div>
+
                 <div class="card">
                     <!-- <div class="card-header">Admin Feature 2</div> -->
                     <div class="card-body">
@@ -153,9 +154,36 @@
                             href="#"
                             class="btn btn-dark"
                             style="background-color: #493628"
+                            data-bs-toggle="modal"
+                            data-bs-target="#room-list"
                         >
                             Display Rooms
                         </button>
+                    </div>
+                </div>
+                <div class="modal" tabindex="1" id="room-list">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Room List</h5>
+                                <button
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                ></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>List of Rooms will Go Here</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button
+                                    class="btn btn-dark"
+                                    data-bs-dismiss="modal"
+                                >
+                                    Close
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card">
