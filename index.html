@@ -84,9 +84,74 @@
                             href="#"
                             class="btn btn-dark"
                             style="background-color: #493628"
+                            data-bs-toggle="modal"
+                            data-bs-target="#add-room"
                         >
                             Add
                         </button>
+                    </div>
+                </div>
+                <div class="modal" tabindex="-1" id="add-room">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" style="color: #493628">
+                                    Sign-Up
+                                </h5>
+                                <button
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                ></button>
+                            </div>
+                            <div class="modal-body" style="color: #54473f">
+                                <form class="Sign-Up">
+                                    <div class="form-floating mb-3">
+                                        <input
+                                            type="email"
+                                            class="form-control"
+                                            id="floatingInput"
+                                            placeholder="name@example.com"
+                                            style="color: #493628"
+                                        />
+                                        <label
+                                            for="floatingInput"
+                                            style="color: #493628"
+                                            >Email address</label
+                                        >
+                                    </div>
+                                    <div class="form-floating">
+                                        <input
+                                            type="password"
+                                            class="form-control"
+                                            id="floatingPassword"
+                                            placeholder="Password"
+                                            style="color: #493628"
+                                        />
+                                        <label
+                                            for="floatingPassword"
+                                            style="color: #493628"
+                                            >Password</label
+                                        >
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button
+                                    class="btn btn-dark"
+                                    data-bs-dismiss="modal"
+                                    style="background-color: #493628"
+                                >
+                                    Close</button
+                                ><button
+                                    type="button"
+                                    class="btn btn-light"
+                                    style="color: #493628"
+                                >
+                                    Proceed
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -161,7 +226,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="modal" tabindex="1" id="room-list">
+                <div class="modal" tabindex="-1" id="room-list">
                     <div class="modal-dialog modal-dialog-scrollable">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -209,7 +274,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="modal" tabindex="1" id="timeslot">
+                <div class="modal" tabindex="-1" id="timeslot">
                     <div class="modal-dialog modal-dialog-scrollable">
                         <div class="modal-content">
                             <div class="modal-header">
