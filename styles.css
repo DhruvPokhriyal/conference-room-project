@@ -195,3 +195,8 @@ button {
 .booking-heading {
     padding-top: 4rem;
 }
+
+button:hover {
+    background-color: #e4e0e1 !important;
+    color: #493628 !important;
+}
