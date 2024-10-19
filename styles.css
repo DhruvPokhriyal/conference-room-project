@@ -59,26 +59,26 @@ header {
 
 .page {
     /* background: linear-gradient(-45deg, #0b2f9f, #98ded9, #c7ffd8); */
-    background-image: url("assets/images/benjamin-child-GWe0dlVD9e0-unsplash.jpg");
-    background-size: cover;
-    position: relative;
+    background: linear-gradient(-45deg, #54473f, #493628, #ab886d, #cbd2a4);
+    background-size: 400% 400%;
+    animation: grad 15s ease infinite;
+}
+
+@keyframes grad {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .hero-title {
     display: flex;
     justify-content: center;
-}
-
-.overlay {
-    background-color: rgba(0, 0, 0, 0.3);
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 1;
 }
 
 header,
@@ -96,7 +96,7 @@ header,
     font-weight: 1000;
     font-style: normal;
     font-size: 6rem;
-    color: #493628;
+    color: #e4e0e1;
     padding-bottom: 20%;
 }
 
