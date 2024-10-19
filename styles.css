@@ -200,3 +200,7 @@ button:hover {
     background-color: #e4e0e1 !important;
     color: #493628 !important;
 }
+
+.hero-title {
+    padding-bottom: 7%;
+}
