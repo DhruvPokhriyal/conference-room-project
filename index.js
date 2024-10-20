@@ -15,21 +15,41 @@ for (let i = 0; i < closeButtons.length; i++) {
 let email = Array.from(document.querySelectorAll(".mail"));
 let password = Array.from(document.querySelectorAll(".password"));
 
-document.querySelectorAll(".sign-up").forEach((form) => {
+// document.querySelectorAll(".sign-up").forEach((form) => {
+//     form.addEventListener("submit", (e) => {
+//         e.preventDefault();
+
+//         const mail = form.querySelector(".mail").value;
+//         const pswd = form.querySelector(".password").value;
+
+//         if (mail === "" || pswd === "") {
+//             alert("Ensure you input a value in both fields!");
+//         } else if (mail === ADMIN_MAIL && pswd === ADMIN_PASSWORD) {
+//             alert("Form Successfully Submitted");
+//         } else {
+//             alert("Invalid Info\n");
+//         }
+
+//         form.reset();
+//     });
+// });
+
+for (let i = 0; i < signUpForm.length; i++) {
+    let form = signUpForm[i];
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
         const mail = form.querySelector(".mail").value;
         const pswd = form.querySelector(".password").value;
-
         if (mail === "" || pswd === "") {
             alert("Ensure you input a value in both fields!");
         } else if (mail === ADMIN_MAIL && pswd === ADMIN_PASSWORD) {
             alert("Form Successfully Submitted");
+            closeButtons[i].click();
         } else {
             alert("Invalid Info\n");
         }
 
         form.reset();
     });
-});
+}
