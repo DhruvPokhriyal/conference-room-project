@@ -93,3 +93,16 @@ for (let i = 0; i < roomModification.length; i++) {
         form.reset();
     });
 }
+
+const displayRoom = document.querySelector("#room-list");
+const displayRoomList = displayRoom.querySelector("p");
+
+document.querySelector("#display-room").addEventListener("click", () => {
+    if (roomList.length) {
+        displayRoomList.textContent = "";
+        for (let room of roomList) {
+            let roomInfo = `${room[0]}-${room[1]}\n`;
+            displayRoomList.textContent += roomInfo;
+        }
+    }
+});
