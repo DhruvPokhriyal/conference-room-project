@@ -7,15 +7,6 @@ const closeButtonIcons = Array.from(document.querySelectorAll(".btn-close"));
 const signUpForm = Array.from(document.querySelectorAll(".sign-up"));
 const adminRoleButton = Array.from(document.querySelectorAll(".admin-role"));
 
-// for (let i = 0; i < closeButtons.length; i++) {
-//     closeButtons[i].addEventListener("click", () => {
-//         signUpForm[i].reset();
-//     });
-//     closeButtonIcons[i].addEventListener("click", () => {
-//         signUpForm[i].reset();
-//     });
-// }
-
 const modals = Array.from(document.querySelectorAll(".modal"));
 for (let modal of modals) {
     closeOptions = Array.from(
@@ -89,7 +80,7 @@ for (let i = 0; i < roomModification.length; i++) {
                     }
                 }
                 if (flag) {
-                    roomList = roomList.splice(index, 1);
+                    roomList.splice(index, 1);
                     alert("Room Successfully Removed");
                     document.querySelector("#remove-room-close").click();
                 } else {
