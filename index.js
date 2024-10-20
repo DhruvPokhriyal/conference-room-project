@@ -1,18 +1,31 @@
 const ADMIN_MAIL = "admin@sample.com";
 const ADMIN_PASSWORD = "admin@123";
-const roomList = [];
+let roomList = [];
 
 const closeButtons = Array.from(document.querySelectorAll(".close-button"));
 const closeButtonIcons = Array.from(document.querySelectorAll(".btn-close"));
 const signUpForm = Array.from(document.querySelectorAll(".sign-up"));
 const adminRoleButton = Array.from(document.querySelectorAll(".admin-role"));
-for (let i = 0; i < closeButtons.length; i++) {
-    closeButtons[i].addEventListener("click", () => {
-        signUpForm[i].reset();
-    });
-    closeButtonIcons[i].addEventListener("click", () => {
-        signUpForm[i].reset();
-    });
+
+// for (let i = 0; i < closeButtons.length; i++) {
+//     closeButtons[i].addEventListener("click", () => {
+//         signUpForm[i].reset();
+//     });
+//     closeButtonIcons[i].addEventListener("click", () => {
+//         signUpForm[i].reset();
+//     });
+// }
+
+const modals = Array.from(document.querySelectorAll(".modal"));
+for (let modal of modals) {
+    closeOptions = Array.from(
+        modal.querySelectorAll(".close-button, .btn-close")
+    );
+    for (let option of closeOptions) {
+        option.addEventListener("click", () => {
+            modal.querySelector("form").reset();
+        });
+    }
 }
 
 for (let i = 0; i < signUpForm.length; i++) {
@@ -25,7 +38,7 @@ for (let i = 0; i < signUpForm.length; i++) {
         if (mail === "" || pswd === "") {
             alert("Ensure you input a value in both fields!");
         } else if (mail === ADMIN_MAIL && pswd === ADMIN_PASSWORD) {
-            alert("Form Successfully Submitted");
+            alert("Sign Up Successfully");
             closeButtons[i].click();
             if (form.id === "sign-up-1") {
                 document.querySelector("#add-room button.admin-role").click();
@@ -53,18 +66,36 @@ for (let i = 0; i < roomModification.length; i++) {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        const buildingName = form.querySelector(".bname").value;
-        const roomId = form.querySelector(".rid").value;
+        let buildingName = form.querySelector(".bname").value;
+        let roomId = form.querySelector(".rid").value;
         if (buildingName === "" || roomId === "") {
             alert("Ensure you input a value in both fields!");
         } else {
             if (form.id == "room-addition") {
-                const roomInfo = { buildingName: roomId };
+                let roomInfo = [buildingName, roomId];
                 roomList.push(roomInfo);
                 alert("Room Successfully Added");
                 document.querySelector("#add-room-close").click();
             }
             if (form.id == "room-removal") {
+                let flag = false;
+                let index;
+                for (let i = 0; i < roomList.length; i++) {
+                    room = roomList[i];
+                    if (room[0] == buildingName && room[1] == roomId) {
+                        flag = true;
+                        index = i;
+                        break;
+                    }
+                }
+                if (flag) {
+                    roomList = roomList.splice(index, 1);
+                    alert("Room Successfully Removed");
+                    document.querySelector("#remove-room-close").click();
+                } else {
+                    alert("Room Not Found !!");
+                    form.reset();
+                }
             }
         }
 
