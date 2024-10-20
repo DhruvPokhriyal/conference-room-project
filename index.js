@@ -1,7 +1,7 @@
 const ADMIN_MAIL = "admin@sample.com";
 const ADMIN_PASSWORD = "admin@123";
 let roomList = [];
-let reservedTimeSlots = {};
+let reservedTimeSlots = [];
 let availableRoom = [];
 
 const closeButtons = Array.from(document.querySelectorAll(".close-button"));
@@ -107,4 +107,62 @@ document.querySelector("#display-room").addEventListener("click", () => {
             displayRoomList.textContent += roomInfo;
         }
     }
+});
+
+const reserveRoom = document.querySelector("#reserve-room");
+reserveRoom.querySelector("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    form = reserveRoom.querySelector("form");
+    let buildingName = form.querySelector(".bname").value;
+    let roomId = form.querySelector(".rid").value;
+    let startTime = form.querySelector("#reserve-start-time").value;
+    let endTime = form.querySelector("#reserve-end-time").value;
+    if (
+        buildingName === "" ||
+        roomId === "" ||
+        startTime === "" ||
+        endTime === ""
+    ) {
+        alert("Ensure you input a value in all fields!");
+    } else {
+        let existFlag = false;
+        for (let room of roomList) {
+            if (room[0] == buildingName && room[1] == roomId) {
+                existFlag = true;
+                break;
+            }
+        }
+        let availableFlag = true;
+        for (let bookedRoom of reservedTimeSlots) {
+            if (bookedRoom[0] != buildingName || bookedRoom[1] != roomId) {
+                availableFlag = true;
+            } else if (
+                bookedRoom[0] == buildingName &&
+                bookedRoom[1] == roomId
+            ) {
+                let reservedStartTime = bookedRoom[2];
+                let reservedEndTime = bookedRoom[3];
+                if (
+                    !(
+                        endTime <= reservedStartTime ||
+                        startTime >= reservedEndTime
+                    )
+                ) {
+                    availableFlag = false;
+                    break;
+                }
+            }
+        }
+        if (existFlag && availableFlag) {
+            let roomInfo = [buildingName, roomId, startTime, endTime];
+            reservedTimeSlots.push(roomInfo);
+            alert("Room Reserved");
+            document.querySelector("#reserve-room-close").click();
+        } else if (existFlag) {
+            alert("Room Unavailable");
+        } else {
+            alert("Room does not exist");
+        }
+    }
+    reserveRoom.querySelector("form");
 });
