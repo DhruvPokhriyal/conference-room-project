@@ -178,11 +178,14 @@
                                 ></button>
                             </div>
                             <div class="modal-body" style="color: #54473f">
-                                <form class="sign-up">
+                                <form
+                                    id="room-addition"
+                                    class="room-modification"
+                                >
                                     <div class="form-floating mb-3">
                                         <input
                                             type="text"
-                                            class="form-control"
+                                            class="form-control bname"
                                             id="floatingInput"
                                             placeholder="Gagan"
                                             style="color: #493628"
@@ -196,7 +199,7 @@
                                     <div class="form-floating">
                                         <input
                                             type="text"
-                                            class="form-control"
+                                            class="form-control rid"
                                             id="floatingId"
                                             placeholder="RoomId"
                                             style="color: #493628"
@@ -214,12 +217,14 @@
                                     class="btn btn-dark close-button"
                                     data-bs-dismiss="modal"
                                     style="background-color: #493628"
+                                    id="add-room-close"
                                 >
                                     Close</button
                                 ><button
                                     type="submit"
                                     class="btn btn-light"
                                     style="color: #493628"
+                                    form="room-addition"
                                 >
                                     Proceed
                                 </button>
@@ -334,11 +339,14 @@
                                 ></button>
                             </div>
                             <div class="modal-body" style="color: #54473f">
-                                <form class="sign-up">
+                                <form
+                                    class="room-modification"
+                                    id="room-removal"
+                                >
                                     <div class="form-floating mb-3">
                                         <input
                                             type="text"
-                                            class="form-control"
+                                            class="form-control bname"
                                             id="floatingInput"
                                             placeholder="Gagan"
                                             style="color: #493628"
@@ -352,7 +360,7 @@
                                     <div class="form-floating">
                                         <input
                                             type="text"
-                                            class="form-control"
+                                            class="form-control rid"
                                             id="floatingId"
                                             placeholder="RoomId"
                                             style="color: #493628"
@@ -376,6 +384,7 @@
                                     type="submit"
                                     class="btn btn-light"
                                     style="color: #493628"
+                                    form="room-removal"
                                 >
                                     Proceed
                                 </button>

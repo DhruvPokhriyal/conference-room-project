@@ -1,5 +1,6 @@
 const ADMIN_MAIL = "admin@sample.com";
 const ADMIN_PASSWORD = "admin@123";
+const roomList = [];
 
 const closeButtons = Array.from(document.querySelectorAll(".close-button"));
 const closeButtonIcons = Array.from(document.querySelectorAll(".btn-close"));
@@ -37,6 +38,34 @@ for (let i = 0; i < signUpForm.length; i++) {
             }
         } else {
             alert("Invalid Info\n");
+        }
+
+        form.reset();
+    });
+}
+
+const roomModification = Array.from(
+    document.querySelectorAll(".room-modification")
+);
+
+for (let i = 0; i < roomModification.length; i++) {
+    let form = roomModification[i];
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const buildingName = form.querySelector(".bname").value;
+        const roomId = form.querySelector(".rid").value;
+        if (buildingName === "" || roomId === "") {
+            alert("Ensure you input a value in both fields!");
+        } else {
+            if (form.id == "room-addition") {
+                const roomInfo = { buildingName: roomId };
+                roomList.push(roomInfo);
+                alert("Room Successfully Added");
+                document.querySelector("#add-room-close").click();
+            }
+            if (form.id == "room-removal") {
+            }
         }
 
         form.reset();
