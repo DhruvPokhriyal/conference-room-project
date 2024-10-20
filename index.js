@@ -166,3 +166,16 @@ reserveRoom.querySelector("form").addEventListener("submit", (e) => {
     }
     reserveRoom.querySelector("form");
 });
+
+const displayTimeSlot = document.querySelector("#timeslot");
+const displayTimeSlotList = displayTimeSlot.querySelector("p");
+
+document.querySelector("#time-slot-display").addEventListener("click", () => {
+    if (reservedTimeSlots.length) {
+        displayTimeSlotList.textContent = "";
+        for (let room of reservedTimeSlots) {
+            let reservedRoomInfo = `${room[0]}-${room[1]}-${room[2]}-${room[3]}\n`;
+            displayTimeSlotList.textContent += reservedRoomInfo;
+        }
+    }
+});
