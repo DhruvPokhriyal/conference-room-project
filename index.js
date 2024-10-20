@@ -1,6 +1,8 @@
 const ADMIN_MAIL = "admin@sample.com";
 const ADMIN_PASSWORD = "admin@123";
 let roomList = [];
+let reservedTimeSlots = {};
+let availableRoom = [];
 
 const closeButtons = Array.from(document.querySelectorAll(".close-button"));
 const closeButtonIcons = Array.from(document.querySelectorAll(".btn-close"));
