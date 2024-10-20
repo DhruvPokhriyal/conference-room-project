@@ -85,13 +85,173 @@
                             class="btn btn-dark"
                             style="background-color: #493628"
                             data-bs-toggle="modal"
-                            data-bs-target="#add-room"
+                            data-bs-target="#add-room-signup"
                         >
                             Add
                         </button>
                     </div>
                 </div>
+                <div class="modal" tabindex="-1" id="add-room-signup">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" style="color: #493628">
+                                    Sign-Up
+                                </h5>
+                                <button
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                ></button>
+                                <button
+                                    style="
+                                        visibility: hidden;
+                                        height: 0;
+                                        width: 0;
+                                    "
+                                    type="button"
+                                    data-bs-target="#add-room"
+                                    data-bs-toggle="modal"
+                                ></button>
+                            </div>
+                            <div class="modal-body" style="color: #54473f">
+                                <form class="sign-up" id="sign-up-1">
+                                    <div class="form-floating mb-3">
+                                        <input
+                                            type="email"
+                                            class="form-control mail"
+                                            id="floatingEmail"
+                                            placeholder="name@example.com"
+                                            style="color: #493628"
+                                        />
+                                        <label
+                                            for="floatingEmail"
+                                            style="color: #493628"
+                                            >Email address</label
+                                        >
+                                    </div>
+                                    <div class="form-floating">
+                                        <input
+                                            type="password"
+                                            class="form-control password"
+                                            id="floatingPassword"
+                                            placeholder="Password"
+                                            style="color: #493628"
+                                        />
+                                        <label
+                                            for="floatingPassword"
+                                            style="color: #493628"
+                                            >Password</label
+                                        >
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button
+                                    class="btn btn-dark close-button"
+                                    data-bs-dismiss="modal"
+                                    style="background-color: #493628"
+                                >
+                                    Close</button
+                                ><button
+                                    type="submit"
+                                    class="btn btn-light"
+                                    form="sign-up-1"
+                                    style="color: #493628"
+                                >
+                                    Proceed
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="modal" tabindex="-1" id="add-room">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" style="color: #493628">
+                                    Add Room
+                                </h5>
+                                <button
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                ></button>
+                            </div>
+                            <div class="modal-body" style="color: #54473f">
+                                <form class="sign-up">
+                                    <div class="form-floating mb-3">
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="floatingInput"
+                                            placeholder="Gagan"
+                                            style="color: #493628"
+                                        />
+                                        <label
+                                            for="floatingInput"
+                                            style="color: #493628"
+                                            >Building Name</label
+                                        >
+                                    </div>
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="floatingId"
+                                            placeholder="RoomId"
+                                            style="color: #493628"
+                                        />
+                                        <label
+                                            for="floatingId"
+                                            style="color: #493628"
+                                            >RoomId</label
+                                        >
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button
+                                    class="btn btn-dark close-button"
+                                    data-bs-dismiss="modal"
+                                    style="background-color: #493628"
+                                >
+                                    Close</button
+                                ><button
+                                    type="submit"
+                                    class="btn btn-light"
+                                    style="color: #493628"
+                                >
+                                    Proceed
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <!-- <div class="card-header">Admin Feature 2</div> -->
+                    <div class="card-body">
+                        <h5 class="card-title">Remove Room</h5>
+                        <p class="card-text">
+                            Remove the Room from the Conference Booking System
+                            (Provided you have Admin Access)
+                        </p>
+                        <button
+                            type="button"
+                            href="#"
+                            class="btn btn-dark"
+                            style="background-color: #493628"
+                            data-bs-target="#remove-room-signup"
+                            data-bs-toggle="modal"
+                        >
+                            Remove
+                        </button>
+                    </div>
+                </div>
+
+                <div class="modal" tabindex="-1" id="remove-room-signup">
                     <div class="modal-dialog modal-dialog-scrollable">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -109,13 +269,13 @@
                                     <div class="form-floating mb-3">
                                         <input
                                             type="email"
-                                            class="form-control"
-                                            id="floatingInput"
+                                            class="form-control mail"
+                                            id="floatingMail"
                                             placeholder="name@example.com"
                                             style="color: #493628"
                                         />
                                         <label
-                                            for="floatingInput"
+                                            for="floatingMail"
                                             style="color: #493628"
                                             >Email address</label
                                         >
@@ -123,13 +283,13 @@
                                     <div class="form-floating">
                                         <input
                                             type="password"
-                                            class="form-control"
-                                            id="floatingPassword"
+                                            class="form-control password"
+                                            id="floatingPass"
                                             placeholder="Password"
                                             style="color: #493628"
                                         />
                                         <label
-                                            for="floatingPassword"
+                                            for="floatingPass"
                                             style="color: #493628"
                                             >Password</label
                                         >
@@ -154,25 +314,7 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="card">
-                    <!-- <div class="card-header">Admin Feature 2</div> -->
-                    <div class="card-body">
-                        <h5 class="card-title">Remove Room</h5>
-                        <p class="card-text">
-                            Remove the Room from the Conference Booking System
-                            (Provided you have Admin Access)
-                        </p>
-                        <button
-                            type="button"
-                            href="#"
-                            class="btn btn-dark"
-                            style="background-color: #493628"
-                        >
-                            Remove
-                        </button>
-                    </div>
-                </div>
+                <!-- Second Dialog Box -->
             </div>
             <!-- Booking Section  -->
             <div class="booking" id="booking">
