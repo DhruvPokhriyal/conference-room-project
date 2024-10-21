@@ -4,6 +4,30 @@ let roomList = [];
 let reservedTimeSlots = [];
 let availableRoom = [];
 
+function roomDisplay() {
+    if (roomList.length) {
+        displayRoomList.textContent = "";
+        for (let room of roomList) {
+            let roomInfo = `${room[0]}-${room[1]}\n`;
+            displayRoomList.textContent += roomInfo;
+        }
+    } else {
+        displayRoomList.textContent = "No Rooms Available";
+    }
+}
+
+function timeSlotDisplay() {
+    if (reservedTimeSlots.length) {
+        displayTimeSlotList.textContent = "";
+        for (let room of reservedTimeSlots) {
+            let reservedRoomInfo = `${room[0]}-${room[1]}-${room[2]}-${room[3]}\n`;
+            displayTimeSlotList.textContent += reservedRoomInfo;
+        }
+    } else {
+        displayTimeSlotList.textContent = "No Reservations";
+    }
+}
+
 const closeButtons = Array.from(document.querySelectorAll(".close-button"));
 const closeButtonIcons = Array.from(document.querySelectorAll(".btn-close"));
 const signUpForm = Array.from(document.querySelectorAll(".sign-up"));
@@ -84,6 +108,15 @@ for (let i = 0; i < roomModification.length; i++) {
                 if (flag) {
                     roomList.splice(index, 1);
                     alert("Room Successfully Removed");
+                    if (roomList.length) {
+                        displayRoomList.textContent = "";
+                        for (let room of roomList) {
+                            let roomInfo = `${room[0]}-${room[1]}\n`;
+                            displayRoomList.textContent += roomInfo;
+                        }
+                    } else {
+                        displayRoomList.textContent = "No Rooms Available";
+                    }
                     document.querySelector("#remove-room-close").click();
                 } else {
                     alert("Room Not Found !!");
@@ -164,7 +197,7 @@ reserveRoom.querySelector("form").addEventListener("submit", (e) => {
             alert("Room does not exist");
         }
     }
-    reserveRoom.querySelector("form");
+    form.reset();
 });
 
 const displayTimeSlot = document.querySelector("#timeslot");
@@ -178,4 +211,50 @@ document.querySelector("#time-slot-display").addEventListener("click", () => {
             displayTimeSlotList.textContent += reservedRoomInfo;
         }
     }
+});
+
+const reserveRoomCancel = document.querySelector("#room-cancellation");
+reserveRoomCancel.querySelector("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    form = reserveRoomCancel.querySelector("form");
+    let buildingName = form.querySelector(".bname").value;
+    let roomId = form.querySelector(".rid").value;
+    let startTime = form.querySelector("#reserve-start-time-cancel").value;
+    let endTime = form.querySelector("#reserve-end-time-cancel").value;
+    if (
+        buildingName === "" ||
+        roomId === "" ||
+        startTime === "" ||
+        endTime === ""
+    ) {
+        alert("Ensure you input a value in all fields!");
+    } else {
+        let index = 0;
+        for (let i = 0; i < reservedTimeSlots.length; i++) {
+            let reservedRoom = reservedTimeSlots[i];
+            if (
+                buildingName == reservedRoom[0] &&
+                roomId == reservedRoom[1] &&
+                startTime == reservedRoom[2] &&
+                endTime == reservedRoom[3]
+            ) {
+                index = i;
+                break;
+            }
+        }
+        reservedTimeSlots.splice(index, 1);
+        alert("Reservation Successfully Removed");
+
+        if (reservedTimeSlots.length) {
+            displayTimeSlotList.textContent = "";
+            for (let room of reservedTimeSlots) {
+                let reservedRoomInfo = `${room[0]}-${room[1]}-${room[2]}-${room[3]}\n`;
+                displayTimeSlotList.textContent += reservedRoomInfo;
+            }
+        } else {
+            displayTimeSlotList.textContent = "No Reservations";
+        }
+        document.querySelector("#reserve-room-cancel-close").click();
+    }
+    form.reset();
 });

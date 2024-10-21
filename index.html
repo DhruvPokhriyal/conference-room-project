@@ -529,9 +529,114 @@
                             href="#"
                             class="btn btn-dark"
                             style="background-color: #493628"
+                            data-bs-toggle="modal"
+                            data-bs-target="#room-cancellation"
                         >
                             Cancel Room
                         </button>
+                    </div>
+                </div>
+                <div class="modal" tabindex="-1" id="room-cancellation">
+                    <button
+                        style="display: none"
+                        type="button"
+                        data-bs-target="#add-room"
+                        data-bs-toggle="modal"
+                        class="admin-role"
+                    ></button>
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" style="color: #493628">
+                                    Reserve Room
+                                </h5>
+                                <button
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                ></button>
+                            </div>
+                            <div class="modal-body" style="color: #54473f">
+                                <form
+                                    id="room-reserve-cancel"
+                                    class="reservations"
+                                >
+                                    <div class="form-floating mb-3">
+                                        <input
+                                            type="text"
+                                            class="form-control bname"
+                                            id="reserve-building-name-cancel"
+                                            placeholder="Gagan"
+                                            style="color: #493628"
+                                        />
+                                        <label
+                                            for="reserve-building-name-cancel"
+                                            style="color: #493628"
+                                            >Building Name</label
+                                        >
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input
+                                            type="text"
+                                            class="form-control rid"
+                                            id="reserve-room-id-cancel"
+                                            placeholder="RoomId"
+                                            style="color: #493628"
+                                        />
+                                        <label
+                                            for="reserve-room-id-cancel"
+                                            style="color: #493628"
+                                            >RoomId</label
+                                        >
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input
+                                            type="time"
+                                            class="form-control"
+                                            id="reserve-start-time-cancel"
+                                            placeholder="RoomId"
+                                            style="color: #493628"
+                                        />
+                                        <label
+                                            for="reserve-start-time-cancel"
+                                            style="color: #493628"
+                                            >Start Time</label
+                                        >
+                                    </div>
+                                    <div class="form-floating">
+                                        <input
+                                            type="time"
+                                            class="form-control"
+                                            id="reserve-end-time-cancel"
+                                            placeholder="RoomId"
+                                            style="color: #493628"
+                                        />
+                                        <label
+                                            for="reserve-end-time-cancel"
+                                            style="color: #493628"
+                                            >End Time</label
+                                        >
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button
+                                    class="btn btn-dark close-button"
+                                    data-bs-dismiss="modal"
+                                    style="background-color: #493628"
+                                    id="reserve-room-cancel-close"
+                                >
+                                    Close</button
+                                ><button
+                                    type="submit"
+                                    class="btn btn-light"
+                                    style="color: #493628"
+                                    form="room-reserve-cancel"
+                                >
+                                    Proceed
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Display Room  -->
