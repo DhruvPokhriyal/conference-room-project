@@ -8,7 +8,7 @@ function roomDisplay() {
     if (roomList.length) {
         displayRoomList.textContent = "";
         for (let room of roomList) {
-            let roomInfo = `${room[0]}-${room[1]}\n`;
+            let roomInfo = `${room[0]},${room[1]}\n`;
             displayRoomList.textContent += roomInfo;
         }
     } else {
@@ -20,7 +20,7 @@ function timeSlotDisplay() {
     if (reservedTimeSlots.length) {
         displayTimeSlotList.textContent = "";
         for (let room of reservedTimeSlots) {
-            let reservedRoomInfo = `${room[0]}-${room[1]}-${room[2]}-${room[3]}\n`;
+            let reservedRoomInfo = `${room[0]},${room[1]} [${room[2]}-${room[3]}]\n`;
             displayTimeSlotList.textContent += reservedRoomInfo;
         }
     } else {
@@ -108,15 +108,7 @@ for (let i = 0; i < roomModification.length; i++) {
                 if (flag) {
                     roomList.splice(index, 1);
                     alert("Room Successfully Removed");
-                    if (roomList.length) {
-                        displayRoomList.textContent = "";
-                        for (let room of roomList) {
-                            let roomInfo = `${room[0]}-${room[1]}\n`;
-                            displayRoomList.textContent += roomInfo;
-                        }
-                    } else {
-                        displayRoomList.textContent = "No Rooms Available";
-                    }
+                    roomDisplay();
                     document.querySelector("#remove-room-close").click();
                 } else {
                     alert("Room Not Found !!");
@@ -133,13 +125,7 @@ const displayRoom = document.querySelector("#room-list");
 const displayRoomList = displayRoom.querySelector("p");
 
 document.querySelector("#display-room").addEventListener("click", () => {
-    if (roomList.length) {
-        displayRoomList.textContent = "";
-        for (let room of roomList) {
-            let roomInfo = `${room[0]}-${room[1]}\n`;
-            displayRoomList.textContent += roomInfo;
-        }
-    }
+    roomDisplay();
 });
 
 const reserveRoom = document.querySelector("#reserve-room");
@@ -204,13 +190,7 @@ const displayTimeSlot = document.querySelector("#timeslot");
 const displayTimeSlotList = displayTimeSlot.querySelector("p");
 
 document.querySelector("#time-slot-display").addEventListener("click", () => {
-    if (reservedTimeSlots.length) {
-        displayTimeSlotList.textContent = "";
-        for (let room of reservedTimeSlots) {
-            let reservedRoomInfo = `${room[0]}-${room[1]}-${room[2]}-${room[3]}\n`;
-            displayTimeSlotList.textContent += reservedRoomInfo;
-        }
-    }
+    timeSlotDisplay();
 });
 
 const reserveRoomCancel = document.querySelector("#room-cancellation");
@@ -244,16 +224,7 @@ reserveRoomCancel.querySelector("form").addEventListener("submit", (e) => {
         }
         reservedTimeSlots.splice(index, 1);
         alert("Reservation Successfully Removed");
-
-        if (reservedTimeSlots.length) {
-            displayTimeSlotList.textContent = "";
-            for (let room of reservedTimeSlots) {
-                let reservedRoomInfo = `${room[0]}-${room[1]}-${room[2]}-${room[3]}\n`;
-                displayTimeSlotList.textContent += reservedRoomInfo;
-            }
-        } else {
-            displayTimeSlotList.textContent = "No Reservations";
-        }
+        timeSlotDisplay();
         document.querySelector("#reserve-room-cancel-close").click();
     }
     form.reset();
