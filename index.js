@@ -138,11 +138,12 @@ document.querySelector("#display-room").addEventListener("click", () => {
 const reserveRoom = document.querySelector("#reserve-room");
 reserveRoom.querySelector("form").addEventListener("submit", (e) => {
     e.preventDefault();
-    form = reserveRoom.querySelector("form");
+    let form = reserveRoom.querySelector("form");
     let buildingName = form.querySelector(".bname").value;
     let roomId = form.querySelector(".rid").value;
     let startTime = form.querySelector("#reserve-start-time").value;
     let endTime = form.querySelector("#reserve-end-time").value;
+    if (startTime >= endTime) return;
     if (
         buildingName === "" ||
         roomId === "" ||
@@ -160,12 +161,7 @@ reserveRoom.querySelector("form").addEventListener("submit", (e) => {
         }
         let availableFlag = true;
         for (let bookedRoom of reservedTimeSlots) {
-            if (bookedRoom[0] != buildingName || bookedRoom[1] != roomId) {
-                availableFlag = true;
-            } else if (
-                bookedRoom[0] == buildingName &&
-                bookedRoom[1] == roomId
-            ) {
+            if (bookedRoom[0] == buildingName && bookedRoom[1] == roomId) {
                 let reservedStartTime = bookedRoom[2];
                 let reservedEndTime = bookedRoom[3];
                 if (
@@ -179,6 +175,7 @@ reserveRoom.querySelector("form").addEventListener("submit", (e) => {
                 }
             }
         }
+
         if (existFlag && availableFlag) {
             let roomInfo = [buildingName, roomId, startTime, endTime];
             reservedTimeSlots.push(roomInfo);
