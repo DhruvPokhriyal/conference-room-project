@@ -4,24 +4,34 @@ let roomList = [];
 let reservedTimeSlots = [];
 let availableRoom = [];
 
+const displayRoom = document.querySelector("#room-list");
+const displayRoomList = displayRoom.querySelector("ul");
+
 function roomDisplay() {
     if (roomList.length) {
         displayRoomList.textContent = "";
         for (let room of roomList) {
+            let entry = document.createElement("li");
             let roomInfo = `${room[0]},${room[1]}\n`;
-            displayRoomList.textContent += roomInfo;
+            entry.textContent = roomInfo;
+            displayRoomList.appendChild(entry);
         }
     } else {
         displayRoomList.textContent = "No Rooms Available";
     }
 }
 
+const displayTimeSlot = document.querySelector("#timeslot");
+const displayTimeSlotList = displayTimeSlot.querySelector("ul");
+
 function timeSlotDisplay() {
     if (reservedTimeSlots.length) {
         displayTimeSlotList.textContent = "";
         for (let room of reservedTimeSlots) {
+            let entry = document.createElement("li");
             let reservedRoomInfo = `${room[0]},${room[1]} [${room[2]}-${room[3]}]\n`;
-            displayTimeSlotList.textContent += reservedRoomInfo;
+            entry.textContent = reservedRoomInfo;
+            displayTimeSlotList.appendChild(entry);
         }
     } else {
         displayTimeSlotList.textContent = "No Reservations";
@@ -121,9 +131,6 @@ for (let i = 0; i < roomModification.length; i++) {
     });
 }
 
-const displayRoom = document.querySelector("#room-list");
-const displayRoomList = displayRoom.querySelector("p");
-
 document.querySelector("#display-room").addEventListener("click", () => {
     roomDisplay();
 });
@@ -185,9 +192,6 @@ reserveRoom.querySelector("form").addEventListener("submit", (e) => {
     }
     form.reset();
 });
-
-const displayTimeSlot = document.querySelector("#timeslot");
-const displayTimeSlotList = displayTimeSlot.querySelector("p");
 
 document.querySelector("#time-slot-display").addEventListener("click", () => {
     timeSlotDisplay();

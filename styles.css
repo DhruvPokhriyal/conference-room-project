@@ -180,7 +180,9 @@ h5 {
 
 .card-text,
 button,
-p {
+p,
+ul,
+li {
     font-family: "Afacad Flux", serif;
     font-optical-sizing: auto;
     /* font-weight: <weight>; */
@@ -213,4 +215,8 @@ label {
     font-optical-sizing: auto;
     font-style: normal;
     font-variation-settings: "slnt" 0;
+}
+
+ul {
+    list-style-type: none;
 }
