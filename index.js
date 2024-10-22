@@ -1,6 +1,9 @@
 const ADMIN_MAIL = "admin@sample.com";
 const ADMIN_PASSWORD = "admin@123";
-let roomList = [];
+let roomList = [
+    ["Gagan", "012"],
+    ["Safari", "006"],
+];
 let reservedTimeSlots = [];
 let availableRoom = [];
 
@@ -29,7 +32,7 @@ function timeSlotDisplay() {
         displayTimeSlotList.textContent = "";
         for (let room of reservedTimeSlots) {
             let entry = document.createElement("li");
-            let reservedRoomInfo = `${room[0]},${room[1]} [${room[2]}-${room[3]}]\n`;
+            let reservedRoomInfo = `${room[4]} : ${room[0]},${room[1]} [${room[2]}-${room[3]}]\n`;
             entry.textContent = reservedRoomInfo;
             displayTimeSlotList.appendChild(entry);
         }
@@ -143,12 +146,14 @@ reserveRoom.querySelector("form").addEventListener("submit", (e) => {
     let roomId = form.querySelector(".rid").value;
     let startTime = form.querySelector("#reserve-start-time").value;
     let endTime = form.querySelector("#reserve-end-time").value;
+    let username = form.querySelector(".uname").value;
     if (startTime >= endTime) return;
     if (
         buildingName === "" ||
         roomId === "" ||
         startTime === "" ||
-        endTime === ""
+        endTime === "" ||
+        username === ""
     ) {
         alert("Ensure you input a value in all fields!");
     } else {
@@ -177,7 +182,7 @@ reserveRoom.querySelector("form").addEventListener("submit", (e) => {
         }
 
         if (existFlag && availableFlag) {
-            let roomInfo = [buildingName, roomId, startTime, endTime];
+            let roomInfo = [buildingName, roomId, startTime, endTime, username];
             reservedTimeSlots.push(roomInfo);
             alert("Room Reserved");
             document.querySelector("#reserve-room-close").click();
@@ -202,11 +207,13 @@ reserveRoomCancel.querySelector("form").addEventListener("submit", (e) => {
     let roomId = form.querySelector(".rid").value;
     let startTime = form.querySelector("#reserve-start-time-cancel").value;
     let endTime = form.querySelector("#reserve-end-time-cancel").value;
+    let username = form.querySelector(".uname").value;
     if (
         buildingName === "" ||
         roomId === "" ||
         startTime === "" ||
-        endTime === ""
+        endTime === "" ||
+        username === ""
     ) {
         alert("Ensure you input a value in all fields!");
     } else {
@@ -217,7 +224,8 @@ reserveRoomCancel.querySelector("form").addEventListener("submit", (e) => {
                 buildingName == reservedRoom[0] &&
                 roomId == reservedRoom[1] &&
                 startTime == reservedRoom[2] &&
-                endTime == reservedRoom[3]
+                endTime == reservedRoom[3] &&
+                username == reserveRoom[4]
             ) {
                 index = i;
                 break;
