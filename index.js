@@ -4,6 +4,13 @@ let roomList = [
     ["Gagan", "012"],
     ["Safari", "006"],
 ];
+
+const currentDate = new Date();
+const curYear = currentDate.getFullYear().toString();
+const curMonth = (currentDate.getMonth() + 1).toString().padStart(2, "0");
+const curDate = currentDate.getDate().toString().padStart(2, "0");
+const formattedDate = `${curYear}-${curMonth}-${curDate}`;
+
 let reservedTimeSlots = [];
 let availableRoom = [];
 
@@ -32,7 +39,7 @@ function timeSlotDisplay() {
         displayTimeSlotList.textContent = "";
         for (let room of reservedTimeSlots) {
             let entry = document.createElement("li");
-            let reservedRoomInfo = `${room[4]} : ${room[0]},${room[1]} [${room[2]}-${room[3]}]\n`;
+            let reservedRoomInfo = `${room[4]} : ${room[0]},${room[1]} - ${room[5]} - [${room[2]}-${room[3]}]\n`;
             entry.textContent = reservedRoomInfo;
             displayTimeSlotList.appendChild(entry);
         }
@@ -147,13 +154,23 @@ reserveRoom.querySelector("form").addEventListener("submit", (e) => {
     let startTime = form.querySelector("#reserve-start-time").value;
     let endTime = form.querySelector("#reserve-end-time").value;
     let username = form.querySelector(".uname").value;
-    if (startTime >= endTime) return;
+    let date = form.querySelector("#reserve-date").value;
+    if (date < formattedDate) {
+        alert("Ensure you input a Valid date.");
+        form.reset();
+        return;
+    }
+    if (startTime >= endTime) {
+        form.reset();
+        return;
+    }
     if (
         buildingName === "" ||
         roomId === "" ||
         startTime === "" ||
         endTime === "" ||
-        username === ""
+        username === "" ||
+        date === ""
     ) {
         alert("Ensure you input a value in all fields!");
     } else {
@@ -167,6 +184,10 @@ reserveRoom.querySelector("form").addEventListener("submit", (e) => {
         let availableFlag = true;
         for (let bookedRoom of reservedTimeSlots) {
             if (bookedRoom[0] == buildingName && bookedRoom[1] == roomId) {
+                if (date == bookedRoom[5]) {
+                    availableFlag = false;
+                    break;
+                }
                 let reservedStartTime = bookedRoom[2];
                 let reservedEndTime = bookedRoom[3];
                 if (
@@ -175,14 +196,23 @@ reserveRoom.querySelector("form").addEventListener("submit", (e) => {
                         startTime >= reservedEndTime
                     )
                 ) {
-                    availableFlag = false;
-                    break;
+                    if (date == bookedRoom[5]) {
+                        availableFlag = false;
+                        break;
+                    }
                 }
             }
         }
 
         if (existFlag && availableFlag) {
-            let roomInfo = [buildingName, roomId, startTime, endTime, username];
+            let roomInfo = [
+                buildingName,
+                roomId,
+                startTime,
+                endTime,
+                username,
+                date,
+            ];
             reservedTimeSlots.push(roomInfo);
             alert("Room Reserved");
             document.querySelector("#reserve-room-close").click();
@@ -208,12 +238,14 @@ reserveRoomCancel.querySelector("form").addEventListener("submit", (e) => {
     let startTime = form.querySelector("#reserve-start-time-cancel").value;
     let endTime = form.querySelector("#reserve-end-time-cancel").value;
     let username = form.querySelector(".uname").value;
+    let date = form.querySelector("#reserve-date").value;
     if (
         buildingName === "" ||
         roomId === "" ||
         startTime === "" ||
         endTime === "" ||
-        username === ""
+        username === "" ||
+        date === ""
     ) {
         alert("Ensure you input a value in all fields!");
     } else {
@@ -225,7 +257,8 @@ reserveRoomCancel.querySelector("form").addEventListener("submit", (e) => {
                 roomId == reservedRoom[1] &&
                 startTime == reservedRoom[2] &&
                 endTime == reservedRoom[3] &&
-                username == reserveRoom[4]
+                username == reserveRoom[4] &&
+                date == reserveRoom[5]
             ) {
                 index = i;
                 break;
