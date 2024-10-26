@@ -206,7 +206,7 @@ li {
 }
 
 button:hover {
-    background-color: var() !important;
+    background-color: var(--light) !important;
     color: var(--headings) !important;
 }
 
