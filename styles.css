@@ -44,6 +44,12 @@ h6 {
     isolation: isolate;
 }
 
+:root {
+    --headings: #493628;
+    --content: #54473f;
+    --light: #e4e0e1;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -63,7 +69,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 4rem;
-    background-color: #e4e0e1;
+    background-color: var(--light);
 }
 .navlist {
     list-style: none;
@@ -83,7 +89,7 @@ body {
 }
 
 header {
-    color: #e4e0e1;
+    color: var(--light);
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
     /* font-weight:; */
@@ -145,7 +151,7 @@ header,
     font-weight: 1000;
     font-style: normal;
     font-size: 6rem;
-    color: #e4e0e1;
+    color: var(--light);
     padding-bottom: 20%;
 }
 
@@ -160,12 +166,12 @@ header,
     display: flex;
     justify-content: center;
     font-size: 4rem;
-    color: #493628;
+    color: var(--headings);
     padding-bottom: 4rem;
 }
 
 .admin {
-    background-color: #e4e0e1;
+    background-color: var(--light);
 }
 
 .card-title,
@@ -174,7 +180,7 @@ h5 {
     font-weight: 1000;
     font-style: normal;
     word-spacing: 0.25em;
-    color: #54473f;
+    color: var(--content);
 }
 
 .card-text,
@@ -192,7 +198,7 @@ li {
 }
 
 .card-text {
-    color: #54473f;
+    color: var(--content);
 }
 
 .booking-heading {
@@ -200,8 +206,8 @@ li {
 }
 
 button:hover {
-    background-color: #e4e0e1 !important;
-    color: #493628 !important;
+    background-color: var() !important;
+    color: var(--headings) !important;
 }
 
 .hero-title {
@@ -217,5 +223,5 @@ label {
 }
 
 ul {
-    color: #493628;
+    color: var(--headings);
 }
