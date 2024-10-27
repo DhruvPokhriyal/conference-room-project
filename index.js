@@ -238,7 +238,7 @@ reserveRoomCancel.querySelector("form").addEventListener("submit", (e) => {
     let startTime = form.querySelector("#reserve-start-time-cancel").value;
     let endTime = form.querySelector("#reserve-end-time-cancel").value;
     let username = form.querySelector(".uname").value;
-    let date = form.querySelector("#reserve-date").value;
+    let date = form.querySelector("#reserve-date-cancel").value;
     if (
         buildingName === "" ||
         roomId === "" ||
@@ -257,8 +257,8 @@ reserveRoomCancel.querySelector("form").addEventListener("submit", (e) => {
                 roomId == reservedRoom[1] &&
                 startTime == reservedRoom[2] &&
                 endTime == reservedRoom[3] &&
-                username == reserveRoom[4] &&
-                date == reserveRoom[5]
+                username == reservedRoom[4] &&
+                date == reservedRoom[5]
             ) {
                 index = i;
                 break;
